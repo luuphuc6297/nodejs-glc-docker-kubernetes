@@ -7,7 +7,7 @@ on:
 
 env:
     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-    DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     PRODUCT_REPO_NAME: ${{ secrets.PRODUCT_REPO_NAME }}
 
 jobs:
@@ -19,13 +19,13 @@ jobs:
             - name: Work Dir
               run: |
                   echo $DOCKER_USERNAME
-                  echo $DOCKER_PASSWORD
+                  echo $DOCKERHUB_TOKEN
                   echo $PRODUCT_REPO_NAME
             - name: Docker login
-              run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+              run: echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
               env:
                 DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-                DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+                DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Build user service docker image
               run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
             - name: Push user service docker image
