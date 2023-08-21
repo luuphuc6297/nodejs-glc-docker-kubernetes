@@ -22,7 +22,7 @@ jobs:
                   echo $PRODUCT_REPO_NAME
             - name: Docker login
               run: |
-                  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+                echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             - name: Build user service docker image
               run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
             - name: Push user service docker image
