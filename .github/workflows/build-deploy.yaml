@@ -2,7 +2,7 @@ name: Docker Build Deploy
 
 on:
     push:
-        branches: [master]
+        branches: [main]
     workflow_dispatch:
 
 env:
@@ -14,7 +14,7 @@ jobs:
     create-user-image:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Work Dir
               run: |
                   echo $DOCKER_USERNAME
@@ -32,7 +32,7 @@ jobs:
         needs: [create-user-image]
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: kubectl - Google Cloud GKE cluster.
               uses: ameydev/gke-kubectl-action@master
               env:
