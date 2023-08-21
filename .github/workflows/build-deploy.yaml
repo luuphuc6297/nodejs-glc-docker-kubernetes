@@ -22,8 +22,10 @@ jobs:
                   echo $DOCKER_PASSWORD
                   echo $PRODUCT_REPO_NAME
             - name: Docker login
-              run: |
-                docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+              run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+              env:
+                DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build user service docker image
               run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
             - name: Push user service docker image
