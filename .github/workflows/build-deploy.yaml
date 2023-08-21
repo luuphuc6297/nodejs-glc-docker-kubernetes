@@ -11,7 +11,8 @@ env:
     PRODUCT_REPO_NAME: ${{ secrets.PRODUCT_REPO_NAME }}
 
 jobs:
-    create-user-image:
+    create-image:
+        name: Create image
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -23,13 +24,16 @@ jobs:
             - name: Docker login
               run: |
                 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+              env:
+                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
             - name: Build user service docker image
               run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
             - name: Push user service docker image
               run: docker push "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
 
     deployment:
-        needs: [create-user-image]
+        needs: [create-image]
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
