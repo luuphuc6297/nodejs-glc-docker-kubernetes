@@ -36,9 +36,9 @@ jobs:
             - name: kubectl - Google Cloud GKE cluster.
               uses: ameydev/gke-kubectl-action@master
               env:
-                APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-                PROJECT_ID: ${{ secrets.PROJECT_ID }}
-                CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
-                ZONE_NAME: asia-southeast2
-            with:
-                args: apply -f k8s/
+                  APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+                  PROJECT_ID: ${{ secrets.PROJECT_ID }}
+                  CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+                  ZONE_NAME: asia-southeast2
+              with:
+                  args: apply -f k8s/
