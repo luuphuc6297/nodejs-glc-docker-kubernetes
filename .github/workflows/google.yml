@@ -44,7 +44,7 @@ jobs:
               uses: 'google-github-actions/auth@v1'
               with:
                   token_format: 'access_token'
-                  workload_identity_provider: 'projects/615949967859/locations/global/workloadIdentityPools/my-pool/providers/my-provideroidc'
+                  workload_identity_provider: 'projects/615949967859/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
                   service_account: 'my-service-account@luu-phuc-vm.iam.gserviceaccount.com'
                   # credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
             - name: Docker configuration
