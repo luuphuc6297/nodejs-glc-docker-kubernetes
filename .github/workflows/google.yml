@@ -18,7 +18,7 @@ on:
 
 env:
     PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-    GAR_LOCATION: asia-southeast
+    GAR_LOCATION: asia-southeast2
     GKE_CLUSTER: autopilot-cluster-1
     GKE_ZONE: asia-southeast2
     DEPLOYMENT_NAME: nodejs-gke
