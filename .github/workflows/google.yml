@@ -18,11 +18,11 @@ on:
 
 env:
     PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-    GAR_LOCATION: asia-southeast # TODO: update region of the Artifact Registry
-    GKE_CLUSTER: autopilot-cluster-1 # TODO: update to cluster name
-    GKE_ZONE: asia-southeast2 # TODO: update to cluster zone
-    DEPLOYMENT_NAME: nodejs-gke # TODO: update to deployment name
-    REPOSITORY: nodejs-glc-docker-kubernetes # TODO: update to Artifact Registry docker repository
+    GAR_LOCATION: asia-southeast
+    GKE_CLUSTER: autopilot-cluster-1
+    GKE_ZONE: asia-southeast2
+    DEPLOYMENT_NAME: nodejs-gke
+    REPOSITORY: nodejs-glc-docker-kubernetes
     IMAGE: nodejs-expressjs-gke
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
               with:
                   token_format: 'access_token'
                   workload_identity_provider: 'projects/615949967859/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-                  service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
+                  service_account: 'my-service-account@luu-phuc-vm.iam.gserviceaccount.com'
                   # credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
             - name: Docker configuration
               run: |-
