@@ -44,9 +44,9 @@ jobs:
               uses: 'google-github-actions/auth@v1'
               with:
                   token_format: 'access_token'
-                  workload_identity_provider: 'projects/615949967859/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+                  workload_identity_provider: 'projects/615949967859/locations/global/workloadIdentityPools/my-pool/providers/my-provideroidc'
                   service_account: 'my-service-account@luu-phuc-vm.iam.gserviceaccount.com'
-                  # credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+                  credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
             - name: Docker configuration
               run: |-
                   echo ${{steps.auth.outputs.access_token}} | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
