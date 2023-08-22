@@ -23,7 +23,7 @@ env:
     GKE_ZONE: asia-southeast2
     DEPLOYMENT_NAME: nodejs-gke
     REPOSITORY: nodejs-glc-docker-kubernetes
-    IMAGE: nodejs-expressjs-gke
+    IMAGE: nodejs-glc-docker-kubernetes
 
 jobs:
     setup-build-publish-deploy:
