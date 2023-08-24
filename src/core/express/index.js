@@ -35,6 +35,8 @@ app.use(helmet());
 app.use(cors());
 // Mount API routes
 app.use('/', routes);
+// Mount Sentry error handler
+app.use(Sentry.Handlers.errorHandler());
 // Catch 404 (Not Found) error
 app.use(notFoundHandler);
 // Mount Error handler
