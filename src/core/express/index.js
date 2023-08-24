@@ -7,13 +7,15 @@ const helmet = require('helmet');
 const path = require('path');
 const methodOverride = require('method-override');
 const { loggerMiddleware } = require('../logger');
-// const { errorHandler, notFoundHandler } = require('../error');
+const { errorHandler, notFoundHandler } = require('../error');
 const routes = require('../../config/router');
+const Sentry = require('../sentry');
 
 const app = express();
 
 // Express compatible request handler
-// app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.tracingHandler());
 // HTTP request logger
 app.use(loggerMiddleware());
 // Parse incoming request bodies in a middleware before your handlers, available under the "req.body" property
@@ -34,9 +36,9 @@ app.use(cors());
 // Mount API routes
 app.use('/', routes);
 // Catch 404 (Not Found) error
-// app.use(notFoundHandler);
+app.use(notFoundHandler);
 // Mount Error handler
-// app.use(errorHandler);
+app.use(errorHandler);
 
 // eslint-disable-next-line import/no-unresolved
 

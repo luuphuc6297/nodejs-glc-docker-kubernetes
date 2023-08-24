@@ -1,1 +1,42 @@
 [2023-08-18T17:23:14.595] [INFO] debug - ✅ Server listened at http://localhost:9000 (local)
+[2023-08-24T09:50:37.111] [ERROR] debug - ReferenceError: mongoose is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:14:30
+    at Object.<anonymous> (/Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+[2023-08-24T09:50:48.993] [ERROR] debug - ReferenceError: mongoose is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:14:30
+    at Object.<anonymous> (/Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+[2023-08-24T09:51:45.665] [ERROR] debug - ReferenceError: MONGO_URI is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:14:53
+    at Object.<anonymous> (/Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:23:47
+[2023-08-24T09:58:31.531] [INFO] debug - 🔥 MongoDB disconnected...
+[2023-08-24T10:00:57.358] [ERROR] debug - ReferenceError: APP_NAME is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:25:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-08-24T10:00:57.361] [INFO] debug - ✅ Server listened at http://localhost:8090 (local)
+[2023-08-24T10:01:50.938] [ERROR] debug - ReferenceError: APP_NAME is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:25:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-08-24T10:01:50.944] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
+[2023-08-24T10:02:14.275] [ERROR] debug - ReferenceError: APP_VERSION is not defined
+    at /Users/luuphuc/Project/nodejs-glc-docker-kubernetes/src/index.js:26:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-08-24T10:02:14.280] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
+[2023-08-24T10:02:38.860] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
