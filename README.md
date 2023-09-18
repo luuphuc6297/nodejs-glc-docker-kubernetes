@@ -1,6 +1,4 @@
 
-English description:
-
 This repository is a learning project for me to learn about Docker, Kubernetes, and GitHub Actions. It also consolidates my knowledge to structure a template for ExpressJS, and the project has integration with Sentry to monitor the app.
 
 The project uses the following technologies:
