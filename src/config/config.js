@@ -1,26 +1,17 @@
-const fs = require('fs');
+require('dotenv').config({ path: './.env.development' });
 
-let envConfig;
+const envConfig = {
+    APP_PORT: process.env.APP_PORT,
+    APP_HOST: process.env.APP_HOST,
+    APP_ENV: process.env.APP_ENV,
+    MONGO_URI: process.env.MONGO_URI,
+    APP_NAME: process.env.APP_NAME,
+    APP_VERSION: process.env.APP_VERSION,
+};
 
-/**
- * Initialize ENV config
- */
-(() => {
-    if (process.env.ENV_VARS) {
-        // Load config variables from CI/CD
-        envConfig = JSON.parse(process.env.ENV_VARS);
-    } else {
-        // Load config variables from local file
-        try {
-            envConfig = JSON.parse(fs.readFileSync('./env.local.json', 'utf-8'));
-        } catch (err) {
-            console.error(err);
-        }
-    }
-    if (!envConfig) {
-        console.error('Failed to load env config!');
-        return process.exit(1);
-    }
-})();
+if (!envConfig.APP_PORT || !envConfig.MONGO_URI) {
+    console.error('Critical environment variables are missing!');
+    process.exit(1);
+}
 
 module.exports = envConfig;

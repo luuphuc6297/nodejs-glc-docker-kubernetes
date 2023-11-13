@@ -2,16 +2,17 @@ const { Server } = require('http');
 const { APP_PORT, APP_HOST, APP_ENV, MONGO_URI, APP_NAME, APP_VERSION } = require('./config/config');
 const logger = require('./core/logger');
 const app = require('./core/express');
-const mongoose = require('./core/mongoose');
+const Database = require('./core/mongoose');
 /**
  * Initialize server
  */
 
 (async () => {
     try {
-
         // Connect MongoDB
-        const dbConnection = await mongoose.connect(MONGO_URI);
+        const dbInstance = Database.getInstance(MONGO_URI);
+
+        const dbConnection = await dbInstance.connect();
 
         const server = Server(app);
 
@@ -29,7 +30,6 @@ const mongoose = require('./core/mongoose');
         - Database: ${dbConnection.name}
         #################################################################
         `);
-
     } catch (err) {
         logger.error(err);
     }

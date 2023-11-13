@@ -41,3 +41,23 @@
 [2023-08-24T10:02:14.280] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
 [2023-08-24T10:02:38.860] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
 [2023-08-24T11:29:54.544] [INFO] debug - ✅ Server listened at http://localhost:8080 (local)
+[2023-11-10T12:11:15.538] [ERROR] debug - TypeError: Database.getInstance is not a function
+    at /Users/luuphuc/Projects/nodejs-glc-docker-kubernetes/src/index.js:13:37
+    at Object.<anonymous> (/Users/luuphuc/Projects/nodejs-glc-docker-kubernetes/src/index.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1241:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)
+    at Module.load (node:internal/modules/cjs/loader:1091:32)
+    at Module._load (node:internal/modules/cjs/loader:938:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
+    at node:internal/main/run_main_module:23:47
+[2023-11-10T12:11:28.222] [ERROR] debug - TypeError: Database.getInstance is not a function
+    at /Users/luuphuc/Projects/nodejs-glc-docker-kubernetes/src/index.js:13:37
+    at Object.<anonymous> (/Users/luuphuc/Projects/nodejs-glc-docker-kubernetes/src/index.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1241:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)
+    at Module.load (node:internal/modules/cjs/loader:1091:32)
+    at Module._load (node:internal/modules/cjs/loader:938:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
+    at node:internal/main/run_main_module:23:47
+[2023-11-13T09:48:48.325] [INFO] debug - 🔥 MongoDB disconnected...
+[2023-11-13T10:01:03.194] [INFO] debug - ✅ Server listened at localhost (development)

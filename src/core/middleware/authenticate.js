@@ -1,43 +1,59 @@
-const jwt = require('jsonwebtoken');
-const { AppError, errors } = require('../error');
-const { JWT_SECRET } = require('../../config/config');
+const mongoose = require('mongoose');
+const glob = require('glob');
+const path = require('path');
+const logger = require('../logger');
 
-/**
- * Get access token from request
- *
- * @param {Request} req - Express Request
- * @return {string | undefined}
- * @private
- */
-const detectAccessToken = (req) => {
-    let accessToken;
-    const { headers, cookies } = req;
-    // Detect token from headers
-    if (headers.authorization) {
-        accessToken = headers.authorization.replace('Bearer ', '');
-    } else if (cookies.access_token) {
-        // TODO: Detect token from cookies
+class Database {
+    constructor(mongoURI) {
+        this.mongoURI = mongoURI;
+        mongoose.Promise = Promise;
+        this.registerModels();
+        this.setupConnectionEvents();
     }
-    return accessToken;
-};
 
-/**
- * Module exports
- * @public
- */
-module.exports = (req, res, next) => {
-    try {
-        // Get access token
-        const accessToken = detectAccessToken(req);
-        if (!accessToken) return next(new AppError(errors.NoTokenProvided));
-        // Verify access token
-        const { sub, exp, iat, ...restPayload } = jwt.verify(accessToken, JWT_SECRET);
-        // Set decoded payload to req.auth
-        req.auth = { id: sub, ...restPayload };
-        return next();
-    } catch (err) {
-        if (err.name === 'TokenExpiredError') return next(new AppError(errors.AccessTokenExpired));
-        if (err.name === 'JsonWebTokenError') return next(new AppError(errors.InvalidAccessToken));
-        return next(err);
+    setupConnectionEvents() {
+        mongoose.connection
+            .on('error', (err) => {
+                logger.error(`🔥 MongoDB connection error: ${err}`);
+                process.exit(-1);
+            })
+            .on('disconnected', () => {
+                logger.info('🔥 MongoDB disconnected...');
+            })
+            .on('reconnected', () => {
+                logger.info('✅ MongoDB reconnected...');
+            });
     }
-};
+
+    registerModels() {
+        const modelFiles = glob.sync('./src/api/**/*.model.js');
+        modelFiles.forEach((file) => {
+            require(path.resolve(file));
+        });
+    }
+
+    async connect() {
+        await mongoose.connect(this.mongoURI, {
+            useCreateIndex: true,
+            keepAlive: 1,
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+        });
+        return mongoose.connection;
+    }
+
+    static getInstance(mongoURI) {
+        if (!this.instance) {
+            this.instance = new Database(mongoURI);
+        }
+        return this.instance;
+    }
+}
+
+// Environment check for migrations
+if (process.env.NODE_ENV !== 'test') {
+    require('../../migrations');
+}
+
+module.exports = Database;
