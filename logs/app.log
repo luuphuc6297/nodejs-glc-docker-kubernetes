@@ -61,3 +61,8 @@
     at node:internal/main/run_main_module:23:47
 [2023-11-13T09:48:48.325] [INFO] debug - 🔥 MongoDB disconnected...
 [2023-11-13T10:01:03.194] [INFO] debug - ✅ Server listened at localhost (development)
+[2023-11-13T14:13:03.784] [INFO] debug - ✅ Server listened at localhost (development)
+[2023-11-13T14:21:55.827] [INFO] debug - ✅ Server listened at localhost (development)
+[2023-11-13T14:23:12.720] [INFO] debug - ✅ Server listened at localhost (development)
+[2023-11-13T14:41:42.252] [INFO] debug - ✅ Server listened at localhost (development)
+[2023-11-13T14:42:49.477] [INFO] debug - ✅ Server listened at localhost (development)

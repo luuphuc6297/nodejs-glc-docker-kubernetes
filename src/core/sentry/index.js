@@ -7,12 +7,11 @@ Sentry.init({
     integrations: [
         // enable HTTP calls tracing
         new Sentry.Integrations.Http({
-            tracing: true
+            tracing: true,
         }),
-
     ],
     // Performance Monitoring
-    tracesSampleRate: 1.0, // 
+    tracesSampleRate: 1.0, //
 });
 
 /**

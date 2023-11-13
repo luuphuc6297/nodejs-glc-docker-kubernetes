@@ -3,9 +3,8 @@ module.exports = {
     STATUS: {
         ACTIVE: 'active',
         INACTIVE: 'inactive',
-        PENDING_DELETE: 'pending delete',
+        PENDING_DELETE: 'pending_delete',
     },
-
     OAUTH2: {
         GOOGLE: 'google',
         GITHUB: 'github',
@@ -41,7 +40,6 @@ module.exports = {
         ACTIVE: 'active',
         INACTIVE: 'inactive',
     },
-
     // INVITE_STATUS
     INVITE_STATUS: {
         SENT: 'sent',
@@ -77,5 +75,54 @@ module.exports = {
         ORDER_BY: 1,
     },
 
+    AGENDA_JOB: {
+        UPDATE_SUBSCRIPTION: 'update_subscription',
+        CANCEL_SUBSCRIPTION: 'cancel_subscription',
+    },
+    SUBSCRIPTION_STATUS: {
+        FUTURE: 'future',
+        ACTIVE: 'active',
+        IN_TRIAL: 'in_trial',
+        NON_RENEWING: 'non_renewing',
+        PAUSED: 'paused',
+        CANCELED: 'cancelled',
+    },
+    SUBSCRIPTION_BILLING_CYCLE: {
+        WEEKLY: 'Weekly',
+        MONTHLY: 'Monthly',
+        YEARLY: 'Yearly',
+    },
+    CONCURRENCY: {
+        VND: 'vnd',
+        USD: 'usd',
+        EUR: 'eur',
+    },
+    INVITE_TOKEN_EXP: '5 minutes',
+    EXPIRE_SYNC_SUBSCRIPTION: '1 day',
+    SYNC_SUBSCRIPTION_DATA: '',
 
+    ORGANIZATION_STATUS: {
+        ACTIVE: 'active',
+        TRIAL: 'trial',
+        ARCHIVE: 'archive',
+    },
+    WEEK_START_ON: {
+        MONDAY: 'monday',
+        TUESDAY: 'tuesday',
+        WEDNESDAY: 'wednesday',
+        THURSDAY: 'thursday',
+        FRIDAY: 'friday',
+        SATURDAY: 'saturday',
+        SUNDAY: 'sunday',
+    },
+    INDUSTRY: {
+        ACCOUNTING: 'accounting',
+        AGENCY: 'agency',
+        DIGITAL_MARKETING: 'digital_marketing',
+        IT_SERVICES: 'it_services',
+        FREELANCING: 'freelancing',
+        ENTERTAINMENT: 'entertainment',
+        SOFTWARE: 'software',
+        E_COMMERCE: 'eCommerce',
+    },
 };
