@@ -34,7 +34,13 @@ Schema.statics = {
         const verify = await this.findOne({ _id: id }).lean();
         return transform(verify);
     },
-
+    async getByEmail(email, type) {
+        const verify = await this.findOne({
+            user_email: email,
+            type,
+        });
+        return transform(verify.toObject());
+    },
     /**
      * Create a new verify
      * @param {Object} verifyDTO

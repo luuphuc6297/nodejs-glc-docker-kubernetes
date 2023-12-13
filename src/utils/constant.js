@@ -125,4 +125,77 @@ module.exports = {
         SOFTWARE: 'software',
         E_COMMERCE: 'eCommerce',
     },
+
+    TEMPLATE_NAME: {
+        INVITE_TO_ORGANIZATION: 'invite-to-organization',
+        RESET_PASSWORD: 'reset-password',
+        VERIFY_ACCOUNT: 'verify-email',
+        CONFIRM_PASSWORD_CHANGED: 'confirm-password-changed',
+    },
+
+    TEMPLATE_PARAMS: {
+        INVITE_TO_ORGANIZATION: {
+            INVITER: 'inviter',
+            INVITED_ORGANIZATION: 'invited-organization',
+            INVITE_URL: 'invite-url',
+        },
+        RESET_PASSWORD: {
+            USER_FULLNAME: 'user-fullname',
+            RESET_PASSWORD_URL: 'reset-password-url',
+            RESET_PASSWORD_CODE: 'reset-password-code',
+        },
+        VERIFY_ACCOUNT: {
+            USER_FULLNAME: 'user-fullname',
+            VERIFY_URL: 'verify-url',
+        },
+        CONFIRM_PASSWORD_CHANGED: {
+            USER_FULLNAME: 'user-fullname',
+        },
+        // SEND_REPORT_EMAIL: {
+        //     SENDER_NAME: 'sender-name',
+        //     REPORT_NAME: 'report-name',
+        //     ADDED_MESSAGE: 'added-message',
+        // },
+        // DELETE_ORGANIZATION_TO_MANAGER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     ORGANIZATION_NAME: 'organization-name',
+        //     ORGANIZATION_SHORT_NAME: 'organization-short-name',
+        // },
+        // DELETE_ORGANIZATION_TO_MEMBER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     ORGANIZATION_NAME: 'organization-name',
+        //     ORGANIZATION_SHORT_NAME: 'organization-short-name',
+        // },
+        // DELETE_PROJECT_TO_MANAGER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     PROJECT_NAME: 'project-name',
+        // },
+        // DELETE_PROJECT_TO_MEMBER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     PROJECT_NAME: 'project-name',
+        // },
+        // REMOVE_ORGANIZATION_MEMBER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     ORGANIZATION_NAME: 'organization-name',
+        // },
+        // REMOVE_PROJECT_MEMBER: {
+        //     USER_FULLNAME: 'user-fullname',
+        //     PROJECT_NAME: 'project-name',
+        // },
+    },
+
+    // SUBJECT EMAIL
+    SUBJECT: {
+        INVITE_MEMBER: 'Invite member',
+        FORGOT_PASSWORD: 'MTGSLabs account recovery instructions',
+        VERIFY_ACCOUNT: 'Verify account',
+        CONFIRM_PASSWORD_CHANGED: 'Your MTGSLabs account password has been changed',
+        NOTIFICATION: 'Notification',
+    },
+    CODE: {
+        VERIFY_ACCOUNT: 'verify_account',
+        FORGOT_PASSWORD: 'forgot_password',
+    },
+
+    VERIFY_ACCOUNT_TOKEN: '1 day',
 };
